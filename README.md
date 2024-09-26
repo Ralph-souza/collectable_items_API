@@ -4,4 +4,4 @@ An API project which main purpose is to provide a storage system for collectable
 
 ## DATABASE PHYSICAL STRUCTURE DIAGRAM
 
-![DATABASE PHYSICAL STRUCTURE DIAGRAM](./assets/docs/item_catalog.svg)
+![DATABASE PHYSICAL STRUCTURE DIAGRAM](./assets/docs/img/item_catalog.svg)
