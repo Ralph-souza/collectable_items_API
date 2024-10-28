@@ -23,7 +23,7 @@ class UserModel(models.Model):
         verbose_name_plural = "users"
         ordering = ("-created_at",)
     
-    def __str__(self) -> str:
+    def __str__(self):
         return self.name
 
 
@@ -40,7 +40,7 @@ class LoanerModel(models.Model):
         verbose_name_plural = "loaners"
         ordering = ("-created_at",)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.name
     
 
@@ -81,7 +81,7 @@ class ItemModel(models.Model):
         verbose_name_plural = "items"
         ordering = ("-created_at",)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.title
     
 
