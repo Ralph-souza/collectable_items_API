@@ -19,7 +19,7 @@ from .serializers import (
 
 
 class UserViewSet(OptimizedQuerySetMixin, viewsets.ModelViewSet):
-    http_method_names = ["get", "post", "put", "delete"]
+    http_method_names = ["get", "post", "put", "patch", "delete"]
     queryset = UserModel.objects.all().order_by("created_at")
     serializer_class = UserSerializer
 

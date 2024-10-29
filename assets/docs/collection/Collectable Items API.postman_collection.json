@@ -1,0 +1,426 @@
+{
+	"info": {
+		"_postman_id": "112ee38d-0a16-44fd-b81f-1a35a0e1548c",
+		"name": "Collectable Items API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "14825300",
+		"_collection_link": "https://galactic-eclipse-924437.postman.co/workspace/Team-Workspace~716b9d42-73be-4d86-8553-990e54ba69a2/collection/14825300-112ee38d-0a16-44fd-b81f-1a35a0e1548c?action=share&source=collection_link&creator=14825300"
+	},
+	"item": [
+		{
+			"name": "User Request",
+			"item": [
+				{
+					"name": "get_user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}user"
+					},
+					"response": []
+				},
+				{
+					"name": "get_user_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}user//"
+					},
+					"response": []
+				},
+				{
+					"name": "create_user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"\",\n    \"email\": \"\",\n    \"password\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}user/"
+					},
+					"response": []
+				},
+				{
+					"name": "partial_user_update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"\",\n    \"email\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}user//"
+					},
+					"response": []
+				},
+				{
+					"name": "user_update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"\",\n    \"email\": \"\",\n    \"password\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}user//"
+					},
+					"response": []
+				},
+				{
+					"name": "delete_user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}user/{}/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Loaner  Request",
+			"item": [
+				{
+					"name": "get_loaner",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}loaner/"
+					},
+					"response": []
+				},
+				{
+					"name": "get_loaner_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}loaner//"
+					},
+					"response": []
+				},
+				{
+					"name": "create_loaner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"\",\n    \"email\": \"\",\n    \"phone\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}loaner/"
+					},
+					"response": []
+				},
+				{
+					"name": "partial_loaner_update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"\",\n    \"email\": \"\",\n    \"phone\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}loaner//"
+					},
+					"response": []
+				},
+				{
+					"name": "loaner_update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"\",\n    \"email\": \"\",\n    \"password\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}loaner//"
+					},
+					"response": []
+				},
+				{
+					"name": "delete_loaner",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}loaner//"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Item Image Request",
+			"item": [
+				{
+					"name": "get_item_image",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}item_image/"
+					},
+					"response": []
+				},
+				{
+					"name": "get_item_image_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}item_image//"
+					},
+					"response": []
+				},
+				{
+					"name": "create_item_image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"\",\n    \"label\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}item_image/"
+					},
+					"response": []
+				},
+				{
+					"name": "partial_item_image_update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"\",\n    \"label\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}item_image//"
+					},
+					"response": []
+				},
+				{
+					"name": "item_image_update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"\",\n    \"label\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}item_image//"
+					},
+					"response": []
+				},
+				{
+					"name": "delete_item_image",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}item_image//"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Item Request",
+			"item": [
+				{
+					"name": "get_item",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}item/"
+					},
+					"response": []
+				},
+				{
+					"name": "get_item_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}item//"
+					},
+					"response": []
+				},
+				{
+					"name": "create_item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"owner\": \"\",\n    \"title\": \"\",\n    \"image\": \"\",\n    \"description\": \"\",\n    \"main_actor\": \"\",\n    \"author\": \"\",\n    \"platform\": \"\",\n    \"category\": \"\",\n    \"media_type\": \"\",\n    \"launch_date\": \"\",\n    \"status\": \"\",\n    \"loaner\": \"\",\n    \"loan_date\": \"\",\n    \"return_date\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}item/"
+					},
+					"response": []
+				},
+				{
+					"name": "partial_item_update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"owner\": \"\",\n    \"title\": \"\",\n    \"image\": \"\",\n    \"description\": \"\",\n    \"main_actor\": \"\",\n    \"author\": \"\",\n    \"platform\": \"\",\n    \"category\": \"\",\n    \"media_type\": \"\",\n    \"launch_date\": \"\",\n    \"status\": \"\",\n    \"loaner\": \"\",\n    \"loan_date\": \"\",\n    \"return_date\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}item//"
+					},
+					"response": []
+				},
+				{
+					"name": "item_update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"owner\": \"\",\n    \"title\": \"\",\n    \"image\": \"\",\n    \"description\": \"\",\n    \"main_actor\": \"\",\n    \"author\": \"\",\n    \"platform\": \"\",\n    \"category\": \"\",\n    \"media_type\": \"\",\n    \"launch_date\": \"\",\n    \"status\": \"\",\n    \"loaner\": \"\",\n    \"loan_date\": \"\",\n    \"return_date\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}item//"
+					},
+					"response": []
+				},
+				{
+					"name": "delete_item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}item//"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Loan History Request",
+			"item": [
+				{
+					"name": "get_loan_history",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}loan_history/"
+					},
+					"response": []
+				},
+				{
+					"name": "get_loan_history_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}loan_history//"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
