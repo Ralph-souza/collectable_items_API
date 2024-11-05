@@ -7,6 +7,7 @@ from .models import (
     LoanerModel,
     ItemImageModel,
     ItemModel,
+    LoanModel,
     LoanHistoryModel
 )
 
@@ -42,8 +43,6 @@ class ItemImageSerializer(FieldsListSerializerMixin, serializers.ModelSerializer
 
 
 class ItemSerializer(FieldsListSerializerMixin, serializers.ModelSerializer):
-    loan_date = serializers.DateField(format="%d/%m?%Y")
-    return_date = serializers.DateField(format="%d/%m?%Y")
     created_at = serializers.DateTimeField(format="%H:%M - %d/%m/%Y", read_only=True)
     updated_at = serializers.DateTimeField(format="%H:%M - %d/%m/%Y", read_only=True)
 
@@ -53,8 +52,17 @@ class ItemSerializer(FieldsListSerializerMixin, serializers.ModelSerializer):
         read_only_fields = ("owner", "id", "created_at", "updated_at")
 
 
+class LoanSerializer(FieldsListSerializerMixin, serializers.ModelSerializer):
+    loan_date = serializers.DateTimeField(format="%H:%M - %d/%m/%Y", read_only=True)
+    return_date = serializers.DateTimeField(format="%H:%M - %d/%m/%Y", read_only=True)
+
+    class Meta:
+        model = LoanModel
+        fields = "__all__"
+        read_only_fields = ("id", "item", "loaner", "loan_date", "return_date")
+
+
 class LoanHistorySerializer(FieldsListSerializerMixin, serializers.ModelSerializer):
     class Meta:
         model = LoanHistoryModel
         fields = "__all__"
-        read_only_fields = ("item", "loaner", "loan_date", "return_date")

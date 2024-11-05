@@ -69,10 +69,7 @@ class ItemModel(models.Model):
     category = models.CharField(max_length=150, choices=CATEGORY_CHOICES, blank=True, null=True, default=None)
     media_type = models.CharField(max_length=150, choices=MEDIA_TYPE_CHOICES, blank=True, null=True, default=None)
     launch_date = models.DateField(blank=True, null=True)
-    status = models.CharField(max_length=150, choices=STATUS_CHOICES, blank=True, null=True, default=None)
-    loaner = models.ForeignKey(LoanerModel, on_delete=models.CASCADE)
-    loan_date = models.DateField(blank=True, null=True)
-    return_date = models.DateField(blank=True, null=True)
+    status = models.CharField(max_length=150, choices=STATUS_CHOICES, blank=True, null=True, default="available")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -83,14 +80,32 @@ class ItemModel(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class LoanModel(models.Model):
+    id = models.BigAutoField(primary_key=True, unique=True, blank=False, null=False)
+    item = models.ForeignKey(ItemModel, on_delete=models.CASCADE)
+    loaner = models.ForeignKey(LoanerModel, on_delete=models.CASCADE)
+    loan_date = models.DateTimeField(auto_now_add=True)
+    return_date = models.DateField(auto_now=True)
+
+    class Meta:
+        verbose_name = "loan"
+        verbose_name_plural = "loans"
+
+    def __str__(self):
+        return self.item
+
+    def save(self, *args, **kwargs):
+        if self.item.status != "not_available":
+            self.item.status = "not_available"
+            self.item.save()
+        super().save(*args, **kwargs)
     
 
 class LoanHistoryModel(models.Model):
-    item = models.ForeignKey(ItemModel, on_delete=models.CASCADE)
-    loaner = models.ForeignKey(LoanerModel, related_name="loaner_name", on_delete=models.CASCADE)
-    loan_date = models.ForeignKey(ItemModel, related_name="loaned_on", on_delete=models.CASCADE)
-    return_date = models.ForeignKey(ItemModel, related_name="returned_on", on_delete=models.CASCADE)
+    loan = models.ForeignKey(LoanModel, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "history"
-        ordering = ("-return_date",)
+        ordering = ("-loan",)

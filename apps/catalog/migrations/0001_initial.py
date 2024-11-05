@@ -70,13 +70,10 @@ class Migration(migrations.Migration):
                 ('category', models.CharField(blank=True, choices=[('action_figures', 'Action Figures'), ('books', 'Books'), ('games', 'Games'), ('movies', 'Movies')], default=None, max_length=150, null=True)),
                 ('media_type', models.CharField(blank=True, choices=[('bluray', 'Bluray'), ('book', 'Book'), ('comics', 'Comics'), ('digital', 'Digital'), ('dvd', 'DVD'), ('kindle', 'Kindle')], default=None, max_length=150, null=True)),
                 ('launch_date', models.DateField(blank=True, null=True)),
-                ('status', models.CharField(blank=True, choices=[('available', 'Available'), ('not_available', 'Not Available')], default=None, max_length=150, null=True)),
-                ('loan_date', models.DateField(blank=True, null=True)),
-                ('return_date', models.DateField(blank=True, null=True)),
+                ('status', models.CharField(blank=True, choices=[('available', 'Available'), ('not_available', 'Not Available')], default='available', max_length=150, null=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
                 ('image', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='catalog.itemimagemodel')),
-                ('loaner', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='catalog.loanermodel')),
                 ('owner', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='catalog.usermodel')),
             ],
             options={
@@ -86,17 +83,28 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
+            name='LoanModel',
+            fields=[
+                ('id', models.BigAutoField(primary_key=True, serialize=False, unique=True)),
+                ('loan_date', models.DateTimeField(auto_now_add=True)),
+                ('return_date', models.DateField(auto_now=True)),
+                ('item', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='catalog.itemmodel')),
+                ('loaner', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='catalog.loanermodel')),
+            ],
+            options={
+                'verbose_name': 'loan',
+                'verbose_name_plural': 'loans',
+            },
+        ),
+        migrations.CreateModel(
             name='LoanHistoryModel',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('item', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='catalog.itemmodel')),
-                ('loan_date', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='loaned_on', to='catalog.itemmodel')),
-                ('loaner', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='loaner_name', to='catalog.loanermodel')),
-                ('return_date', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='returned_on', to='catalog.itemmodel')),
+                ('loan', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='catalog.loanmodel')),
             ],
             options={
                 'verbose_name': 'history',
-                'ordering': ('-return_date',),
+                'ordering': ('-loan',),
             },
         ),
     ]
