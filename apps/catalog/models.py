@@ -51,7 +51,7 @@ class LoanerModel(models.Model):
     
 
 class ItemImageModel(models.Model):
-    id = models.BigAutoField(primary_key=True, unique=True, blank=False, null=False)
+    id = models.BigAutoField(primary_key=True)
     url = models.URLField(max_length=250, blank=True, null=True)
     label = models.CharField(max_length=150, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -65,7 +65,7 @@ class ItemImageModel(models.Model):
 
 class ItemModel(models.Model):
     owner = models.ForeignKey(UserModel, on_delete=models.CASCADE)
-    id = models.BigAutoField(primary_key=True, unique=True, blank=False, null=False)
+    id = models.BigAutoField(primary_key=True)
     title = models.CharField(max_length=250, blank=False, null=False)
     image = models.ForeignKey(ItemImageModel, on_delete=models.CASCADE)
     description = models.TextField(blank=True, null=True)
@@ -89,7 +89,7 @@ class ItemModel(models.Model):
 
 
 class LoanModel(models.Model):
-    id = models.BigAutoField(primary_key=True, unique=True, blank=False, null=False)
+    id = models.BigAutoField(primary_key=True)
     item = models.ForeignKey(ItemModel, on_delete=models.CASCADE)
     loaner = models.ForeignKey(LoanerModel, on_delete=models.CASCADE)
     loan_date = models.DateTimeField(auto_now_add=True)
